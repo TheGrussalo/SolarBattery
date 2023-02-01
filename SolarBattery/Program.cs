@@ -92,9 +92,11 @@ class Program
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine();
-                var values = line.Split(',');
+                if (line is not null) {
+                    var values = line.Split(',');
 
-                filecontents.Add(values[0], values[1]);
+                    filecontents.Add(values[0], values[1]);
+                }
             }
         }
         return filecontents;
